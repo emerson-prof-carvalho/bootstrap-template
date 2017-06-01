@@ -1,0 +1,141 @@
+<!-- http://webdevacademy.com.br/tutoriais/crud-com-bootstrap-3-parte1/ -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Meu Facebook</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Fira+Sans|Open+Sans" rel="stylesheet">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+</head>
+<body> 
+	<nav id="menu" class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+			    <span class="sr-only">Toggle navigation</span>
+			    <span class="icon-bar"></span>
+			    <span class="icon-bar"></span>
+			    <span class="icon-bar"></span>
+			   </button>
+				<a class="navbar-brand" href="#">
+			    	<span><img height="30px" width="30px" alt="PM" src="images/logo.png"><strong>&nbspPost Manager</strong></strong></span>
+			    </a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="users.html"><span class="glyphicon glyphicon-home" /><strong>&nbspInício</strong></a></li>
+					<li><a href="#"><span class="glyphicon glyphicon-user" /><strong>&nbspUsuários</strong></a></li>
+					<li><a href="#"><span class="glyphicon glyphicon-pencil" /><strong>&nbspPosts</strong></a></li>
+					<li class="dropdown">
+				        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><strong>Perfil</strong>
+				        <span class="caret"></span></a>
+				        <ul class="dropdown-menu">
+				          <li><a href="#"><span class="glyphicon glyphicon-cog" /></span>&nbspDados cadastrais</a></li>
+				          <li><a href="#"><span class="glyphicon glyphicon-log-out" /></span>&nbspSair</a></li>
+				        </ul>
+				    </li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<br /><br /><br />
+
+	<div id="container" class="container-fluid">
+ 	 	<div id="top" class="row">
+ 			<div class="col-md-3">
+		        <h3>Usuários</h3>
+		    </div>
+		 
+		    <div class="col-md-6">
+		        <div class="input-group h2">
+		            <input name="data[search]" class="form-control" id="search" type="text" placeholder="Pesquisar Usuários">
+		            <span class="input-group-btn">
+		                <button class="btn btn-danger" type="submit">
+		                    <span class="glyphicon glyphicon-search"></span>
+		                </button>
+		            </span>
+		        </div>
+		    </div>
+		 
+		    <div class="col-md-3">
+		        <a href="add-user.html" class="btn btn-danger pull-right h2"><span class="glyphicon glyphicon-plus" /></span>&nbspAdicionar Usuário</a>
+		    </div>
+     	</div>
+ 
+     	<hr />
+     	
+     	<div id="list" class="row">
+     		<div class="table-responsive col-md-12">
+		        <table class="table table-striped table-hover" cellspacing="0" cellpadding="0">
+		            <thead>
+		                <tr>
+		                    <th>Data</th>
+		                    <th>Usuário</th>
+		                    <th>Conteúdo</th>
+		                    <th>Editar</th>
+		                    <th>Excluir</th>
+		                 </tr>
+		            </thead>
+		            <tbody>
+		                <tr>
+		                    <td>01/01/2015</td>
+		                    <td>Emerson Assis de Carvalho</td>
+		                    <td>Olá, bom dia!</td>
+		                    <td class="actions">
+		                        <a class="btn btn-info btn-xs" href="add-user.html"><span class="glyphicon glyphicon-edit"></span></a>
+		                    </td>
+		                    <td class="actions">
+		                        <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash"></span></a>
+		                    </td>
+		                </tr>
+
+		                <tr>
+		                    <td>01/01/2015</td>
+		                    <td>Luiza Oliveira Carvalho</td>
+		                    <td>Olá, como vai?</td>
+		                    <td class="actions">
+		                        <a class="btn btn-info btn-xs" href="add-user.html"><span class="glyphicon glyphicon-edit"></span></a>
+		                    </td>
+		                    <td class="actions">
+		                        <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash"></span></a>
+		                    </td>
+		                </tr>
+
+		                <tr>
+		                    <td>01/01/2015</td>
+		                    <td>Denise Oliveira</td>
+		                    <td>Boa noite!</td>
+		                    <td class="actions">
+		                        <a class="btn btn-info btn-xs" href="add-user.html"><span class="glyphicon glyphicon-edit"></span></a>
+		                    </td>
+		                    <td class="actions">
+		                        <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash"></span></a>
+		                    </td>
+		                </tr>
+		            </tbody>
+		         </table>
+		 
+		     </div>
+     	</div>
+ 
+     	<div id="bottom" class="row">
+     		<div class="col-md-12">
+		        <ul class="pagination">
+		            <li class="disabled"><a>&lt; Anterior</a></li>
+		            <li class="disabled"><a>1</a></li>
+		            <li><a href="#">2</a></li>
+		            <li><a href="#">3</a></li>
+		            <li class="next"><a href="#" rel="next">Próximo &gt;</a></li>
+		        </ul><!-- /.pagination -->
+		    </div>
+     	</div>
+	</div>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+</body>
+</html>
