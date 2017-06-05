@@ -1,17 +1,40 @@
-<!-- http://webdevacademy.com.br/tutoriais/crud-com-bootstrap-3-parte1/ -->
+q<!-- http://webdevacademy.com.br/tutoriais/crud-com-bootstrap-3-parte1/ -->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Meu Facebook</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<link rel='shortcut icon' type='image/x-icon' href='images/favicon.ico' />
+
+	<title>Post Manager</title>
 
 	<link href="https://fonts.googleapis.com/css?family=Fira+Sans|Open+Sans" rel="stylesheet">
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
 </head>
-<body> 
+<body>
+	<div id="delete-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="modalLabel">Excluir Usuário</h4></span>
+	      </div>
+	      <div class="modal-body">
+	      	<span class="glyphicon glyphicon-trash"></span>
+	        Deseja realmente excluir o usuário <span id="hiddenValue"></span>?
+	      </div>
+	      <div class="modal-footer">
+	      	<button type="button" class="btn btn-default" data-dismiss="modal">N&atilde;o</button>
+	        <button type="button" class="btn btn-danger">Sim</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
 	<nav id="menu" class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -89,7 +112,7 @@
 		                        <a class="btn btn-info btn-xs" href="add-user.html"><span class="glyphicon glyphicon-edit"></span></a>
 		                    </td>
 		                    <td class="actions">
-		                        <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash"></span></a>
+		                        <a class="btn btn-danger btn-xs modal-remove" user-name="Emerson" data-toggle="modal" data-target="#delete-modal"  href="#"><span class="glyphicon glyphicon-trash"></span></a>
 		                    </td>
 		                </tr>
 
@@ -101,7 +124,7 @@
 		                        <a class="btn btn-info btn-xs" href="add-user.html"><span class="glyphicon glyphicon-edit"></span></a>
 		                    </td>
 		                    <td class="actions">
-		                        <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash"></span></a>
+		                        <a class="btn btn-danger btn-xs modal-remove" user-name="Luiza" data-toggle="modal" data-target="#delete-modal"  href="#"><span class="glyphicon glyphicon-trash"></span></a>
 		                    </td>
 		                </tr>
 
@@ -113,7 +136,7 @@
 		                        <a class="btn btn-info btn-xs" href="add-user.html"><span class="glyphicon glyphicon-edit"></span></a>
 		                    </td>
 		                    <td class="actions">
-		                        <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash"></span></a>
+		                        <a class="btn btn-danger btn-xs modal-remove" user-name="Denise" data-toggle="modal" data-target="#delete-modal"  href="#"><span class="glyphicon glyphicon-trash"></span></a>
 		                    </td>
 		                </tr>
 		            </tbody>
@@ -121,7 +144,7 @@
 		 
 		     </div>
      	</div>
- 
+     	
      	<div id="bottom" class="row">
      		<div class="col-md-12">
 		        <ul class="pagination">
@@ -137,5 +160,13 @@
 
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$(function () {
+	        $(".modal-remove").click(function () {
+	            var userName = $(this).attr('user-name');
+	            $(".modal-body #hiddenValue").text("'"+userName+"'");
+	        })
+	    });		
+	</script>
 </body>
 </html>
